@@ -4,8 +4,8 @@
 // The product we wanna build.
 public class Product {
 
-    // The builder for our product
-    public class ProductBuilder{
+    // The builder for our product (a static inner class)
+    public static class ProductBuilder{
 
         // Possess the same fields than our product (those aren't finals though).
         private String optionA;
@@ -18,16 +18,19 @@ public class Product {
 
         //Setters
 
-        public void setOptionA(String optionA){
+        public ProductBuilder setOptionA(String optionA){
             this.optionA = optionA;
+            return this;
         }
 
-        public void setOptionB(int optionB){
+        public ProductBuilder setOptionB(int optionB){
             this.optionB = optionB;
+            return this;
         }
 
-        public void setOptionC(boolean optionC){
+        public ProductBuilder setOptionC(boolean optionC){
             this.optionC = optionC;
+            return this;
         }
 
         //This is where the magic happen : we call for the private constructor of our product and give it our builder
@@ -58,7 +61,7 @@ public class Product {
         return optionB;
     }
 
-    public boolean isOptionC() {
+    public boolean getOptionC() {
         return optionC;
     }
 }
